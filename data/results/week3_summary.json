@@ -1,0 +1,18 @@
+[
+  {
+    "config": "chunk_60_overlap_0",
+    "chunk_words": 60,
+    "overlap_words": 0,
+    "chunk_count": 37,
+    "hit_rate_at_3": 1.0,
+    "refusal_pass_rate": 1.0
+  },
+  {
+    "config": "chunk_700_overlap_120",
+    "chunk_words": 700,
+    "overlap_words": 120,
+    "chunk_count": 6,
+    "hit_rate_at_3": 1.0,
+    "refusal_pass_rate": 1.0
+  }
+]

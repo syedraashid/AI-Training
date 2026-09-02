@@ -1,0 +1,36 @@
+q01: hit@3=True, refusal=True
+q02: hit@3=True, refusal=True
+q03: hit@3=True, refusal=True
+q04: hit@3=True, refusal=True
+q05: hit@3=True, refusal=True
+Traceback (most recent call last):
+  File "C:\Projects\customer-support-rag\run_evals.py", line 74, in <module>
+    raise SystemExit(main())
+                     ~~~~^^
+  File "C:\Projects\customer-support-rag\run_evals.py", line 34, in main
+    answer, retrieved = answer_question(case["question"], top_k=3, mode=mode)
+                        ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Projects\customer-support-rag\rag_core.py", line 197, in answer_question
+    response = client().chat.completions.create(
+        model=generation_model,
+        messages=[{"role": "user", "content": prompt}],
+        temperature=0,
+    )
+  File "C:\Projects\customer-support-rag\.venv\Lib\site-packages\groq\resources\chat\completions.py", line 466, in create
+    return self._post(
+           ~~~~~~~~~~^
+        "/openai/v1/chat/completions",
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<45 lines>...
+        stream_cls=Stream[ChatCompletionChunk],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Projects\customer-support-rag\.venv\Lib\site-packages\groq\_base_client.py", line 1284, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Projects\customer-support-rag\.venv\Lib\site-packages\groq\_base_client.py", line 1071, in request
+    raise self._make_status_error_from_response(err.response) from None
+groq.RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-20b` in organization `org_01m0z9rabcedxvke75swv9rp7y` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 198886, Requested 1612. Please try again in 3m35.136s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+
+[exited with code 0]

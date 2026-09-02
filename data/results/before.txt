@@ -1,0 +1,39 @@
+q01: hit@3=True, refusal=True
+q02: hit@3=True, refusal=True
+q03: hit@3=True, refusal=True
+q04: hit@3=True, refusal=True
+q05: hit@3=True, refusal=True
+q06: hit@3=True, refusal=True
+q07: hit@3=True, refusal=True
+q08: hit@3=True, refusal=True
+q09: hit@3=True, refusal=True
+q10: hit@3=True, refusal=True
+q11: hit@3=True, refusal=True
+q12: hit@3=True, refusal=True
+q13: hit@3=True, refusal=True
+q14: hit@3=None, refusal=True
+q15: hit@3=None, refusal=True
+q16: hit@3=None, refusal=True
+q17: hit@3=True, refusal=True
+q18: hit@3=True, refusal=True
+w5-06: hit@3=True, refusal=False
+w5-14: hit@3=True, refusal=False
+w5-17: hit@3=False, refusal=False
+w5-07: hit@3=None, refusal=True
+w5-09: hit@3=None, refusal=True
+w5-12: hit@3=None, refusal=True
+w4-code-bare: hit@3=True, refusal=True
+w4-code-natural: hit@3=True, refusal=True
+
+Retrieval mode: hybrid
+Hit-rate@3: 95.0%
+Refusal assertion pass rate: 88.5%
+
+Scores by problem type:
+- exact-code-retrieval: hit@3=100.0%, refusal=100.0%, n=2
+- retrieval: hit@3=100.0%, refusal=100.0%, n=14
+- unsupported-question: hit@3=n/a, refusal=100.0%, n=6
+- unwarranted-refusal: hit@3=100.0%, refusal=33.3%, n=3
+- vocabulary-mismatch: hit@3=0.0%, refusal=0.0%, n=1
+
+[exited with code 0]

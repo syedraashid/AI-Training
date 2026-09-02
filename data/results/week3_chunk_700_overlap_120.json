@@ -1,0 +1,282 @@
+{
+  "config": {
+    "name": "chunk_700_overlap_120",
+    "chunk_words": 700,
+    "overlap_words": 120
+  },
+  "chunk_count": 6,
+  "hit_rate_at_3": 1.0,
+  "refusal_pass_rate": 1.0,
+  "rows": [
+    {
+      "id": "q01",
+      "question": "How many days do I have to return an unopened item for a full refund?",
+      "expected_source": "returns_and_refunds.md",
+      "retrieved_sources": [
+        "returns_and_refunds.md",
+        "warranty_and_repairs.md",
+        "account_and_billing.md"
+      ],
+      "should_refuse": false,
+      "refused": false,
+      "hit_at_3": true,
+      "refusal_ok": true,
+      "answer": "You have 30 days from the delivery date to return an unopened item for a full refund. [returns_and_refunds.md | chunk-1]"
+    },
+    {
+      "id": "q02",
+      "question": "How long does it take for a refund to be processed once you receive the returned item?",
+      "expected_source": "returns_and_refunds.md",
+      "retrieved_sources": [
+        "returns_and_refunds.md",
+        "shipping_and_delivery.md",
+        "account_and_billing.md"
+      ],
+      "should_refuse": false,
+      "refused": false,
+      "hit_at_3": true,
+      "refusal_ok": true,
+      "answer": "Refunds are issued within **5\u20117 business days after we receive and inspect the returned item at our warehouse**. The 5\u20117 day window starts from the warehouse receipt, not from the day the customer ships the item. [returns_and_refunds.md | chunk-1]"
+    },
+    {
+      "id": "q03",
+      "question": "Can I get a refund as cash or store credit instead of back to my card?",
+      "expected_source": "returns_and_refunds.md",
+      "retrieved_sources": [
+        "account_and_billing.md",
+        "returns_and_refunds.md",
+        "promo_and_discounts.md"
+      ],
+      "should_refuse": false,
+      "refused": false,
+      "hit_at_3": true,
+      "refusal_ok": true,
+      "answer": "No. Refunds are always issued to the original payment method used for the purchase, and we do not offer cash, check, gift card, cryptocurrency, or store credit as alternatives.  \n[returns_and_refunds.md | chunk-1]"
+    },
+    {
+      "id": "q04",
+      "question": "What does error code ERR-4032 mean and how should I fix it?",
+      "expected_source": "order_error_codes.md",
+      "retrieved_sources": [
+        "order_error_codes.md",
+        "promo_and_discounts.md",
+        "returns_and_refunds.md"
+      ],
+      "should_refuse": false,
+      "refused": false,
+      "hit_at_3": true,
+      "refusal_ok": true,
+      "answer": "**ERR\u20114032** means the payment authorization failed.  \nThe card issuer declined the transaction\u2014most often because the card is expired, the billing ZIP code is wrong, or there are insufficient funds. It can also be triggered by the issuing bank\u2019s fraud filter.  \n\n**Fix**  \n1. Ask the customer to verify their card details (number, expiry, CVV, billing ZIP).  \n2. Update the payment method on file if needed and retry the charge.  \n3. If the charge fails three times in a row, suggest an alternate payment method such as PayPal.  \n4. Do not manually override or force\u2011approve the charge under any circumstances.  \n\n[order_error_codes.md | document:chunk-1]"
+    },
+    {
+      "id": "q05",
+      "question": "What causes error code ERR-2210 and how do I resolve it?",
+      "expected_source": "order_error_codes.md",
+      "retrieved_sources": [
+        "order_error_codes.md",
+        "promo_and_discounts.md",
+        "warranty_and_repairs.md"
+      ],
+      "should_refuse": false,
+      "refused": false,
+      "hit_at_3": true,
+      "refusal_ok": true,
+      "answer": "ERR\u20112210 is triggered when the shipping address entered by the customer does not match the carrier\u2019s address database. Common causes include a missing apartment/unit number, a misspelled street name, or an out\u2011of\u2011date ZIP code.  \nTo resolve it, ask the customer to confirm the full address\u2014including any unit or apartment number\u2014and then have them resubmit the order. If the address is a genuinely new location that isn\u2019t yet in the carrier database (e.g., a brand\u2011new subdivision), the order can be manually approved by a supervisor after the address is confirmed verbally.  \n\n[order_error_codes.md | chunk-1]"
+    },
+    {
+      "id": "q06",
+      "question": "A customer says the same order charged them twice within a minute. What error code is that and how do I fix it?",
+      "expected_source": "order_error_codes.md",
+      "retrieved_sources": [
+        "order_error_codes.md",
+        "promo_and_discounts.md",
+        "returns_and_refunds.md"
+      ],
+      "should_refuse": false,
+      "refused": false,
+      "hit_at_3": true,
+      "refusal_ok": true,
+      "answer": "The error code for a duplicate charge within a minute is **ERR\u20111187** \u2013 *Duplicate order detected* [order_error_codes.md | document | chunk: order_error_codes.md:document:chunk-1].\n\n**Fix**  \n1. Check the order history for a duplicate charge.  \n2. If a duplicate is found, cancel the duplicate order and issue an automatic refund.  \n3. Do not ask the customer to dispute the charge with their bank; resolve it directly through support. [order_error_codes.md | document | chunk: order_error_codes.md:document:chunk-1]"
+    },
+    {
+      "id": "q07",
+      "question": "What carrier handles standard shipping and how long does it take?",
+      "expected_source": "shipping_and_delivery.md",
+      "retrieved_sources": [
+        "shipping_and_delivery.md",
+        "returns_and_refunds.md",
+        "warranty_and_repairs.md"
+      ],
+      "should_refuse": false,
+      "refused": false,
+      "hit_at_3": true,
+      "refusal_ok": true,
+      "answer": "Standard shipping is handled by **RegionalGo Post** and takes **3\u20115 business days** to arrive.  \n[shipping_and_delivery.md | chunk-1]"
+    },
+    {
+      "id": "q08",
+      "question": "Tracking shows my package as delivered but it never arrived. What should I do?",
+      "expected_source": "shipping_and_delivery.md",
+      "retrieved_sources": [
+        "shipping_and_delivery.md",
+        "returns_and_refunds.md",
+        "order_error_codes.md"
+      ],
+      "should_refuse": false,
+      "refused": false,
+      "hit_at_3": true,
+      "refusal_ok": true,
+      "answer": "If the tracking says \u201cdelivered\u201d but you haven\u2019t received the package, you need to file a lost\u2011package claim.  \n1. **File the claim within 48\u202fhours** of the delivery scan. Claims after 48\u202fhours can still be reviewed, but they\u2019re not guaranteed.  \n2. Once the claim is filed, we will open an investigation with the carrier.  \n3. If the package can\u2019t be located within 5 business days, we will either reship the order at no cost or issue a full refund\u2014whichever you prefer.  \n4. (If the order total is under\u202f$20, we can reship immediately without waiting for the carrier investigation.)  \n\n[shipping_and_delivery.md | chunk-1]"
+    },
+    {
+      "id": "q09",
+      "question": "Do you ship to other countries?",
+      "expected_source": "shipping_and_delivery.md",
+      "retrieved_sources": [
+        "shipping_and_delivery.md",
+        "returns_and_refunds.md",
+        "order_error_codes.md"
+      ],
+      "should_refuse": false,
+      "refused": false,
+      "hit_at_3": true,
+      "refusal_ok": true,
+      "answer": "No, we currently ship only within the domestic country. International shipping is not offered at this time, and there is no committed date for it. [shipping_and_delivery.md | chunk-1]"
+    },
+    {
+      "id": "q10",
+      "question": "What payment methods do you accept?",
+      "expected_source": "account_and_billing.md",
+      "retrieved_sources": [
+        "account_and_billing.md",
+        "promo_and_discounts.md",
+        "order_error_codes.md"
+      ],
+      "should_refuse": false,
+      "refused": false,
+      "hit_at_3": true,
+      "refusal_ok": true,
+      "answer": "We accept Visa, Mastercard, American Express, and PayPal for payments. Gift cards can be added as a secondary payment method alongside a card, but they cannot be used alone for subscription purchases. [account_and_billing.md | chunk-1]"
+    },
+    {
+      "id": "q11",
+      "question": "How do I cancel my subscription so I'm not charged for next month?",
+      "expected_source": "account_and_billing.md",
+      "retrieved_sources": [
+        "account_and_billing.md",
+        "order_error_codes.md",
+        "promo_and_discounts.md"
+      ],
+      "should_refuse": false,
+      "refused": false,
+      "hit_at_3": true,
+      "refusal_ok": true,
+      "answer": "To stop the next monthly charge, cancel your subscription at least **24\u202fhours before the next billing date**. The cancellation will take effect at the end of the current paid period, so you\u2019ll keep access until then.  \n\n[account_and_billing.md | chunk-1]"
+    },
+    {
+      "id": "q12",
+      "question": "What does the standard product warranty cover and for how long?",
+      "expected_source": "warranty_and_repairs.md",
+      "retrieved_sources": [
+        "warranty_and_repairs.md",
+        "returns_and_refunds.md",
+        "account_and_billing.md"
+      ],
+      "should_refuse": false,
+      "refused": false,
+      "hit_at_3": true,
+      "refusal_ok": true,
+      "answer": "The standard product warranty covers manufacturing defects for **12 months from the original purchase date**. Proof of purchase is required for any claim, and the warranty does not cover accidental damage, water damage, cosmetic wear, or damage from unauthorized repairs or modifications. Opening the product casing yourself voids the warranty immediately. [warranty_and_repairs.md | chunk-1]"
+    },
+    {
+      "id": "q13",
+      "question": "Can I use two promo codes on the same order?",
+      "expected_source": "promo_and_discounts.md",
+      "retrieved_sources": [
+        "promo_and_discounts.md",
+        "account_and_billing.md",
+        "returns_and_refunds.md"
+      ],
+      "should_refuse": false,
+      "refused": false,
+      "hit_at_3": true,
+      "refusal_ok": true,
+      "answer": "No. Only one promo code may be applied per order, and promo codes cannot be combined or stacked with each other. This rule cannot be overridden by a support agent. [promo_and_discounts.md | chunk-1]"
+    },
+    {
+      "id": "q14",
+      "question": "What is the CEO's direct phone number?",
+      "expected_source": "",
+      "retrieved_sources": [
+        "order_error_codes.md",
+        "shipping_and_delivery.md",
+        "returns_and_refunds.md"
+      ],
+      "should_refuse": true,
+      "refused": true,
+      "hit_at_3": null,
+      "refusal_ok": true,
+      "answer": "I don't know based on the provided customer-support documents."
+    },
+    {
+      "id": "q15",
+      "question": "Do you have a customer loyalty points program?",
+      "expected_source": "",
+      "retrieved_sources": [
+        "promo_and_discounts.md",
+        "account_and_billing.md",
+        "returns_and_refunds.md"
+      ],
+      "should_refuse": true,
+      "refused": true,
+      "hit_at_3": null,
+      "refusal_ok": true,
+      "answer": "I don't know based on the provided customer-support documents."
+    },
+    {
+      "id": "q16",
+      "question": "What is your return policy for wholesale or bulk B2B orders?",
+      "expected_source": "",
+      "retrieved_sources": [
+        "returns_and_refunds.md",
+        "promo_and_discounts.md",
+        "warranty_and_repairs.md"
+      ],
+      "should_refuse": true,
+      "refused": true,
+      "hit_at_3": null,
+      "refusal_ok": true,
+      "answer": "I don't know based on the provided customer-support documents."
+    },
+    {
+      "id": "q17",
+      "question": "If I buy the extended warranty, what is my total coverage period, and does it cover anything beyond what the standard warranty already covers?",
+      "expected_source": "warranty_and_repairs.md",
+      "retrieved_sources": [
+        "warranty_and_repairs.md",
+        "returns_and_refunds.md",
+        "account_and_billing.md"
+      ],
+      "should_refuse": false,
+      "refused": false,
+      "hit_at_3": true,
+      "refusal_ok": true,
+      "answer": "The extended warranty extends the time you\u2019re covered but does not add any new types of protection.  \n- **Total coverage period:** 24\u202fmonths (12\u202fmonths standard + 12\u202fmonths additional).  \n- **Coverage scope:** It covers the same manufacturing defects as the standard warranty and does not include any extra coverage beyond that.  \n\n[ warranty_and_repairs.md | chunk-1 ]"
+    },
+    {
+      "id": "q18",
+      "question": "My cart total dropped below a promo code's minimum after I returned one item, so the discount was removed. Can support manually re-apply an expired code for me instead?",
+      "expected_source": "promo_and_discounts.md",
+      "retrieved_sources": [
+        "promo_and_discounts.md",
+        "account_and_billing.md",
+        "returns_and_refunds.md"
+      ],
+      "should_refuse": false,
+      "refused": false,
+      "hit_at_3": true,
+      "refusal_ok": true,
+      "answer": "I\u2019m sorry, but support cannot manually re\u2011apply an expired promo code.  \nAccording to the policy, expired promo codes are rejected automatically at checkout (ERR\u20113305) and \u201cSupport agents cannot manually honor an expired code under any circumstances, regardless of how recently it expired\u201d\u3010promo_and_discounts.md | chunk-1\u3011.  \n\nAdditionally, if the cart total falls below a promo code\u2019s minimum order value after a return or cancellation, the discount is automatically removed from the remaining order\u3010promo_and_discounts.md | chunk-1\u3011."
+    }
+  ]
+}

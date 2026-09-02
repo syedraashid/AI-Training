@@ -1,0 +1,175 @@
+{
+  "mode": "dense",
+  "hit_rate_at_1": 0.8571428571428571,
+  "hit_rate_at_3": 1.0,
+  "rows": [
+    {
+      "id": "w4-01",
+      "question": "ERR-4032",
+      "expected_source": "order_error_codes.md",
+      "retrieved_sources": [
+        "order_error_codes.md",
+        "returns_and_refunds.md",
+        "promo_and_discounts.md"
+      ],
+      "hit_at_1": true,
+      "hit_at_3": true
+    },
+    {
+      "id": "w4-02",
+      "question": "ERR-2210",
+      "expected_source": "order_error_codes.md",
+      "retrieved_sources": [
+        "order_error_codes.md",
+        "promo_and_discounts.md",
+        "returns_and_refunds.md"
+      ],
+      "hit_at_1": true,
+      "hit_at_3": true
+    },
+    {
+      "id": "w4-03",
+      "question": "ERR-5091",
+      "expected_source": "order_error_codes.md",
+      "retrieved_sources": [
+        "order_error_codes.md",
+        "promo_and_discounts.md",
+        "returns_and_refunds.md"
+      ],
+      "hit_at_1": true,
+      "hit_at_3": true
+    },
+    {
+      "id": "w4-04",
+      "question": "ERR-1187",
+      "expected_source": "order_error_codes.md",
+      "retrieved_sources": [
+        "order_error_codes.md",
+        "promo_and_discounts.md",
+        "returns_and_refunds.md"
+      ],
+      "hit_at_1": true,
+      "hit_at_3": true
+    },
+    {
+      "id": "w4-05",
+      "question": "ERR-3305",
+      "expected_source": "order_error_codes.md",
+      "retrieved_sources": [
+        "order_error_codes.md",
+        "shipping_and_delivery.md",
+        "returns_and_refunds.md"
+      ],
+      "hit_at_1": true,
+      "hit_at_3": true
+    },
+    {
+      "id": "w4-06",
+      "question": "4032",
+      "expected_source": "order_error_codes.md",
+      "retrieved_sources": [
+        "order_error_codes.md",
+        "promo_and_discounts.md",
+        "returns_and_refunds.md"
+      ],
+      "hit_at_1": true,
+      "hit_at_3": true
+    },
+    {
+      "id": "w4-11",
+      "question": "3305",
+      "expected_source": "order_error_codes.md",
+      "retrieved_sources": [
+        "shipping_and_delivery.md",
+        "order_error_codes.md",
+        "account_and_billing.md"
+      ],
+      "hit_at_1": false,
+      "hit_at_3": true
+    },
+    {
+      "id": "w4-12",
+      "question": "2210",
+      "expected_source": "order_error_codes.md",
+      "retrieved_sources": [
+        "order_error_codes.md",
+        "warranty_and_repairs.md",
+        "account_and_billing.md"
+      ],
+      "hit_at_1": true,
+      "hit_at_3": true
+    },
+    {
+      "id": "w4-13",
+      "question": "5091",
+      "expected_source": "order_error_codes.md",
+      "retrieved_sources": [
+        "order_error_codes.md",
+        "shipping_and_delivery.md",
+        "promo_and_discounts.md"
+      ],
+      "hit_at_1": true,
+      "hit_at_3": true
+    },
+    {
+      "id": "w4-14",
+      "question": "1187",
+      "expected_source": "order_error_codes.md",
+      "retrieved_sources": [
+        "order_error_codes.md",
+        "account_and_billing.md",
+        "promo_and_discounts.md"
+      ],
+      "hit_at_1": true,
+      "hit_at_3": true
+    },
+    {
+      "id": "w4-07",
+      "question": "customer got ERR-2210 on checkout, what do I tell them",
+      "expected_source": "order_error_codes.md",
+      "retrieved_sources": [
+        "order_error_codes.md",
+        "returns_and_refunds.md",
+        "promo_and_discounts.md"
+      ],
+      "hit_at_1": true,
+      "hit_at_3": true
+    },
+    {
+      "id": "w4-08",
+      "question": "what percentage is the restocking fee on an opened non-defective return",
+      "expected_source": "returns_and_refunds.md",
+      "retrieved_sources": [
+        "returns_and_refunds.md",
+        "promo_and_discounts.md",
+        "account_and_billing.md"
+      ],
+      "hit_at_1": true,
+      "hit_at_3": true
+    },
+    {
+      "id": "w4-09",
+      "question": "SwiftCourier overnight order cutoff time",
+      "expected_source": "shipping_and_delivery.md",
+      "retrieved_sources": [
+        "shipping_and_delivery.md",
+        "returns_and_refunds.md",
+        "order_error_codes.md"
+      ],
+      "hit_at_1": true,
+      "hit_at_3": true
+    },
+    {
+      "id": "w4-10",
+      "question": "dollar order value that requires an adult signature on delivery",
+      "expected_source": "shipping_and_delivery.md",
+      "retrieved_sources": [
+        "promo_and_discounts.md",
+        "shipping_and_delivery.md",
+        "order_error_codes.md"
+      ],
+      "hit_at_1": false,
+      "hit_at_3": true
+    }
+  ]
+}
