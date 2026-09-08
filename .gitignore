@@ -3,3 +3,4 @@
 __pycache__/
 data/index.json
 data/traces.jsonl
+data/agent_traces.jsonl

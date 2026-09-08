@@ -31,7 +31,7 @@ def main() -> int:
 
     results = []
     for case in cases:
-        answer, retrieved = answer_question(case["question"], top_k=3, mode=mode)
+        answer, retrieved, _usage = answer_question(case["question"], top_k=3, mode=mode)
         sources = [item["source"] for item in retrieved]
         hit_at_3 = case["expected_source"] in sources if case["expected_source"] else None
         refusal_ok = is_refusal(answer) == case["should_refuse"]

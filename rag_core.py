@@ -172,7 +172,7 @@ def retrieve(
 
 def answer_question(
     question: str, top_k: int = 3, generation_model: str = "openai/gpt-oss-20b", mode: str = "dense"
-) -> tuple[str, list[dict[str, Any]]]:
+) -> tuple[str, list[dict[str, Any]], dict[str, int]]:
     results, _ = retrieve(question, top_k, mode)
     context = "\n\n".join(
         f"[Source: {item['source']} | {item['location']} | chunk: {item['id']}]\n{item['text']}"
@@ -200,8 +200,9 @@ Support-document excerpts:
         temperature=0,
     )
     answer = (response.choices[0].message.content or "").strip()
+    usage = {"total_tokens": response.usage.total_tokens if response.usage else 0}
     log_trace(question, results, answer, generation_model, mode)
-    return answer, results
+    return answer, results, usage
 
 
 def log_trace(

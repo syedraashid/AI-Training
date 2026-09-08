@@ -1,0 +1,12 @@
+[
+  {"id": "t01", "ticket": "How many days do I have to report a damaged item after delivery?", "expected_pages": ["page 2"], "expect_escalation": false},
+  {"id": "t02", "ticket": "How long does standard delivery take?", "expected_pages": ["page 2"], "expect_escalation": false},
+  {"id": "t03", "ticket": "Can a customer combine two promo codes on one order?", "expected_pages": ["page 3"], "expect_escalation": false},
+  {"id": "t04", "ticket": "What does the product warranty cover?", "expected_pages": ["page 3"], "expect_escalation": false},
+  {"id": "t05", "ticket": "How does a customer reset their password?", "expected_pages": ["page 3"], "expect_escalation": false},
+  {"id": "t06", "ticket": "A customer placed an order 3 hours ago and wants to cancel it. They also have a promo code that already expired and want it applied anyway. Are either of those possible?", "expected_pages": ["page 2", "page 3"], "expect_escalation": false},
+  {"id": "t07", "ticket": "A customer's tracking hasn't updated in 12 days, and separately they're asking if the product warranty would cover it if the item turns out to be damaged. What should I tell them about both?", "expected_pages": ["page 2", "page 3"], "expect_escalation": false},
+  {"id": "t08", "ticket": "A customer never received their password reset email, and separately wants to know if they can get a cash refund instead of a refund to their card for an unused item still within the return window.", "expected_pages": ["page 2", "page 3"], "expect_escalation": false},
+  {"id": "t09", "ticket": "A customer is threatening legal action because an item arrived broken and wants to know how to report it.", "expected_pages": ["page 2"], "expect_escalation": true},
+  {"id": "t10", "ticket": "Do you have a customer loyalty rewards program?", "expected_pages": [], "expect_escalation": false}
+]

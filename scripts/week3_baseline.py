@@ -40,7 +40,7 @@ def run_config(config: dict, docs: list[tuple[str, bytes]], questions: list[dict
     chunk_count = rag_core.build_index(docs, config["chunk_words"], config["overlap_words"], EMBEDDING_MODEL)
     rows = []
     for case in questions:
-        answer, retrieved = rag_core.answer_question(case["question"], top_k=3, generation_model="openai/gpt-oss-20b")
+        answer, retrieved, _usage = rag_core.answer_question(case["question"], top_k=3, generation_model="openai/gpt-oss-20b")
         sources = [item["source"] for item in retrieved]
         hit_at_3 = (case["expected_source"] in sources) if case["expected_source"] else None
         refused = rag_core.is_refusal(answer)

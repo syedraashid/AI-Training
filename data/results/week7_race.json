@@ -1,0 +1,733 @@
+{
+  "summary": {
+    "fixed": {
+      "avg_llm_calls": 1.0,
+      "avg_tokens": 1372.8,
+      "avg_time_s": 7.3591,
+      "avg_page_coverage": 1.0,
+      "escalation_pass_rate": 1.0
+    },
+    "agent": {
+      "avg_llm_calls": 2.7,
+      "avg_tokens": 2325.4,
+      "avg_time_s": 15.244800000000001,
+      "avg_page_coverage": 0.75,
+      "escalation_pass_rate": 0.9
+    }
+  },
+  "rows": [
+    {
+      "id": "t01",
+      "ticket": "How many days do I have to report a damaged item after delivery?",
+      "expected_pages": [
+        "page 2"
+      ],
+      "expect_escalation": false,
+      "fixed": {
+        "answer": "You have **7 calendar days** from the delivery date to report a damaged item.  \n[customer-support-ticket-knowledge-base.pdf | page\u202f2 | chunk\u20111]",
+        "sources": [
+          {
+            "source": "customer-support-ticket-knowledge-base.pdf",
+            "location": "page 2"
+          },
+          {
+            "source": "customer-support-ticket-knowledge-base.pdf",
+            "location": "page 1"
+          },
+          {
+            "source": "customer-support-ticket-knowledge-base.pdf",
+            "location": "page 3"
+          }
+        ],
+        "num_llm_calls": 1,
+        "total_tokens": 1250,
+        "elapsed_s": 8.164,
+        "page_coverage": 1.0,
+        "escalation_correct": true
+      },
+      "agent": {
+        "ticket": "How many days do I have to report a damaged item after delivery?",
+        "answer": "",
+        "steps": [
+          {
+            "step": 1,
+            "action": "search_kb",
+            "action_input": {
+              "query": "report damaged item after delivery days"
+            },
+            "observation": "[customer-support-ticket-knowledge-base.pdf | page 2]\nNorthstar Home - fictional training data Page 2 Returns and refunds Standard return window Customers may request a return for an unused item within 30 calendar days of the delivery date. The item must be in its original condition and include all supplied accessories. Final-sale products and digital gift cards cannot be returned. Refund timing After the returned item reaches our warehouse and passes inspection, the refund is issued to the original payment method within 3-5 business days. A bank or card issuer may take additional time to show the credit. Damaged or incorrect orders Customers must report a damaged, defective, or incorrect item within 7 calendar days of delivery. Ask for the order number, a short description, and clear photos of the product and packaging. Do not ask the customer to return the item until a support agent confirms the next step. Order changes and cancellations An order can be cancelled or changed only during the first 2 hours after it is placed, provided warehouse processing has not begun. After 2 hours, agents should explain that the order cannot be changed and offer the standard return process after delivery if eligible. Delivery and tracking Standard delivery normally takes 5-7 business days after dispatch. Express delivery normally takes 1-2 business days after dispatch. Dispatch confirmation, including a tracking link, is sent by email within one business day of a successful order. If tracking has not changed for 10 business days after dispatch, create a delivery investigation ticket. Do not promise a replacement or refund before the investigation is complete."
+          },
+          {
+            "step": 2,
+            "action": "final_answer",
+            "action_input": "",
+            "observation": null
+          }
+        ],
+        "sources": [
+          {
+            "source": "customer-support-ticket-knowledge-base.pdf",
+            "location": "page 2"
+          }
+        ],
+        "num_llm_calls": 2,
+        "total_tokens": 1418,
+        "elapsed_s": 1.825,
+        "stopped_safely": true,
+        "page_coverage": 1.0,
+        "escalation_correct": true
+      }
+    },
+    {
+      "id": "t02",
+      "ticket": "How long does standard delivery take?",
+      "expected_pages": [
+        "page 2"
+      ],
+      "expect_escalation": false,
+      "fixed": {
+        "answer": "Standard delivery normally takes **5\u20117 business days after dispatch**\u3010customer-support-ticket-knowledge-base.pdf | page 2\u3011",
+        "sources": [
+          {
+            "source": "customer-support-ticket-knowledge-base.pdf",
+            "location": "page 2"
+          },
+          {
+            "source": "customer-support-ticket-knowledge-base.pdf",
+            "location": "page 3"
+          },
+          {
+            "source": "customer-support-ticket-knowledge-base.pdf",
+            "location": "page 1"
+          }
+        ],
+        "num_llm_calls": 1,
+        "total_tokens": 1212,
+        "elapsed_s": 1.047,
+        "page_coverage": 1.0,
+        "escalation_correct": true
+      },
+      "agent": {
+        "ticket": "How long does standard delivery take?",
+        "answer": "",
+        "steps": [
+          {
+            "step": 1,
+            "action": "search_kb",
+            "action_input": {
+              "query": "standard delivery time"
+            },
+            "observation": "[customer-support-ticket-knowledge-base.pdf | page 2]\nNorthstar Home - fictional training data Page 2 Returns and refunds Standard return window Customers may request a return for an unused item within 30 calendar days of the delivery date. The item must be in its original condition and include all supplied accessories. Final-sale products and digital gift cards cannot be returned. Refund timing After the returned item reaches our warehouse and passes inspection, the refund is issued to the original payment method within 3-5 business days. A bank or card issuer may take additional time to show the credit. Damaged or incorrect orders Customers must report a damaged, defective, or incorrect item within 7 calendar days of delivery. Ask for the order number, a short description, and clear photos of the product and packaging. Do not ask the customer to return the item until a support agent confirms the next step. Order changes and cancellations An order can be cancelled or changed only during the first 2 hours after it is placed, provided warehouse processing has not begun. After 2 hours, agents should explain that the order cannot be changed and offer the standard return process after delivery if eligible. Delivery and tracking Standard delivery normally takes 5-7 business days after dispatch. Express delivery normally takes 1-2 business days after dispatch. Dispatch confirmation, including a tracking link, is sent by email within one business day of a successful order. If tracking has not changed for 10 business days after dispatch, create a delivery investigation ticket. Do not promise a replacement or refund before the investigation is complete."
+          },
+          {
+            "step": 2,
+            "action": "final_answer",
+            "action_input": "",
+            "observation": null
+          }
+        ],
+        "sources": [
+          {
+            "source": "customer-support-ticket-knowledge-base.pdf",
+            "location": "page 2"
+          }
+        ],
+        "num_llm_calls": 2,
+        "total_tokens": 1367,
+        "elapsed_s": 1.79,
+        "stopped_safely": true,
+        "page_coverage": 1.0,
+        "escalation_correct": true
+      }
+    },
+    {
+      "id": "t03",
+      "ticket": "Can a customer combine two promo codes on one order?",
+      "expected_pages": [
+        "page 3"
+      ],
+      "expect_escalation": false,
+      "fixed": {
+        "answer": "No \u2013 only one promotional code may be used per order. Promotional codes cannot be combined with another code, applied after checkout, or exchanged for cash. [customer-support-ticket-knowledge-base.pdf | page\u202f3]",
+        "sources": [
+          {
+            "source": "customer-support-ticket-knowledge-base.pdf",
+            "location": "page 3"
+          },
+          {
+            "source": "customer-support-ticket-knowledge-base.pdf",
+            "location": "page 2"
+          },
+          {
+            "source": "customer-support-ticket-knowledge-base.pdf",
+            "location": "page 1"
+          }
+        ],
+        "num_llm_calls": 1,
+        "total_tokens": 1274,
+        "elapsed_s": 1.099,
+        "page_coverage": 1.0,
+        "escalation_correct": true
+      },
+      "agent": {
+        "ticket": "Can a customer combine two promo codes on one order?",
+        "answer": "",
+        "steps": [
+          {
+            "step": 1,
+            "action": "search_kb",
+            "action_input": {
+              "query": "combine two promo codes on one order"
+            },
+            "observation": "[customer-support-ticket-knowledge-base.pdf | page 3]\nNorthstar Home - fictional training data Page 3 Accounts and promotions Changing an account email A customer can change the email address on an account from Account Settings. If they cannot access the old email address, ask them to contact support from the new address and provide the last order number plus the billing postcode for verification. Password reset Customers should use the 'Forgot password' link on the sign-in screen. The reset email expires after 30 minutes. If the email does not arrive, ask the customer to check spam and confirm they are using the email address registered to the account. Promotions and coupons Only one promotional code may be used per order. Promotional codes cannot be combined with another code, applied after checkout, or exchanged for cash. A code that has expired cannot be reinstated. Product warranty Northstar Home products include a 12-month limited warranty from the delivery date for manufacturing defects. The warranty does not cover accidental damage, normal wear, or misuse. Customers should provide proof of purchase and photos of the issue when making a warranty claim. Escalation guidance Escalate cases involving threats, suspected fraud, a chargeback, legal correspondence, or a customer requesting deletion of personal data. Record only necessary case details in the support system. End of fictional training document."
+          },
+          {
+            "step": 2,
+            "action": "final_answer",
+            "action_input": "",
+            "observation": null
+          }
+        ],
+        "sources": [
+          {
+            "source": "customer-support-ticket-knowledge-base.pdf",
+            "location": "page 3"
+          }
+        ],
+        "num_llm_calls": 2,
+        "total_tokens": 1384,
+        "elapsed_s": 1.727,
+        "stopped_safely": true,
+        "page_coverage": 1.0,
+        "escalation_correct": true
+      }
+    },
+    {
+      "id": "t04",
+      "ticket": "What does the product warranty cover?",
+      "expected_pages": [
+        "page 3"
+      ],
+      "expect_escalation": false,
+      "fixed": {
+        "answer": "The warranty covers manufacturing defects for 12\u202fmonths from the delivery date. It does **not** cover accidental damage, normal wear, or misuse. Customers must provide proof of purchase and photos of the issue when making a claim. [customer-support-ticket-knowledge-base.pdf | page\u202f3]",
+        "sources": [
+          {
+            "source": "customer-support-ticket-knowledge-base.pdf",
+            "location": "page 3"
+          },
+          {
+            "source": "customer-support-ticket-knowledge-base.pdf",
+            "location": "page 1"
+          },
+          {
+            "source": "customer-support-ticket-knowledge-base.pdf",
+            "location": "page 2"
+          }
+        ],
+        "num_llm_calls": 1,
+        "total_tokens": 1291,
+        "elapsed_s": 3.11,
+        "page_coverage": 1.0,
+        "escalation_correct": true
+      },
+      "agent": {
+        "ticket": "What does the product warranty cover?",
+        "answer": "",
+        "steps": [
+          {
+            "step": 1,
+            "action": "search_kb",
+            "action_input": {
+              "query": "product warranty cover"
+            },
+            "observation": "[customer-support-ticket-knowledge-base.pdf | page 3]\nNorthstar Home - fictional training data Page 3 Accounts and promotions Changing an account email A customer can change the email address on an account from Account Settings. If they cannot access the old email address, ask them to contact support from the new address and provide the last order number plus the billing postcode for verification. Password reset Customers should use the 'Forgot password' link on the sign-in screen. The reset email expires after 30 minutes. If the email does not arrive, ask the customer to check spam and confirm they are using the email address registered to the account. Promotions and coupons Only one promotional code may be used per order. Promotional codes cannot be combined with another code, applied after checkout, or exchanged for cash. A code that has expired cannot be reinstated. Product warranty Northstar Home products include a 12-month limited warranty from the delivery date for manufacturing defects. The warranty does not cover accidental damage, normal wear, or misuse. Customers should provide proof of purchase and photos of the issue when making a warranty claim. Escalation guidance Escalate cases involving threats, suspected fraud, a chargeback, legal correspondence, or a customer requesting deletion of personal data. Record only necessary case details in the support system. End of fictional training document."
+          },
+          {
+            "step": 2,
+            "action": "final_answer",
+            "action_input": "",
+            "observation": null
+          }
+        ],
+        "sources": [
+          {
+            "source": "customer-support-ticket-knowledge-base.pdf",
+            "location": "page 3"
+          }
+        ],
+        "num_llm_calls": 2,
+        "total_tokens": 1434,
+        "elapsed_s": 10.038,
+        "stopped_safely": true,
+        "page_coverage": 1.0,
+        "escalation_correct": true
+      }
+    },
+    {
+      "id": "t05",
+      "ticket": "How does a customer reset their password?",
+      "expected_pages": [
+        "page 3"
+      ],
+      "expect_escalation": false,
+      "fixed": {
+        "answer": "To reset a password, a customer should click the **\u201cForgot password\u201d** link on the sign\u2011in screen. A reset email will be sent that expires after 30\u202fminutes. If the email does not arrive, advise the customer to check their spam folder and confirm they are using the email address registered to the account. [customer-support-ticket-knowledge-base.pdf | page\u202f3]",
+        "sources": [
+          {
+            "source": "customer-support-ticket-knowledge-base.pdf",
+            "location": "page 3"
+          },
+          {
+            "source": "customer-support-ticket-knowledge-base.pdf",
+            "location": "page 1"
+          },
+          {
+            "source": "customer-support-ticket-knowledge-base.pdf",
+            "location": "page 2"
+          }
+        ],
+        "num_llm_calls": 1,
+        "total_tokens": 1308,
+        "elapsed_s": 9.165,
+        "page_coverage": 1.0,
+        "escalation_correct": true
+      },
+      "agent": {
+        "ticket": "How does a customer reset their password?",
+        "answer": "",
+        "steps": [
+          {
+            "step": 1,
+            "action": "search_kb",
+            "action_input": {
+              "query": "reset password"
+            },
+            "observation": "[customer-support-ticket-knowledge-base.pdf | page 3]\nNorthstar Home - fictional training data Page 3 Accounts and promotions Changing an account email A customer can change the email address on an account from Account Settings. If they cannot access the old email address, ask them to contact support from the new address and provide the last order number plus the billing postcode for verification. Password reset Customers should use the 'Forgot password' link on the sign-in screen. The reset email expires after 30 minutes. If the email does not arrive, ask the customer to check spam and confirm they are using the email address registered to the account. Promotions and coupons Only one promotional code may be used per order. Promotional codes cannot be combined with another code, applied after checkout, or exchanged for cash. A code that has expired cannot be reinstated. Product warranty Northstar Home products include a 12-month limited warranty from the delivery date for manufacturing defects. The warranty does not cover accidental damage, normal wear, or misuse. Customers should provide proof of purchase and photos of the issue when making a warranty claim. Escalation guidance Escalate cases involving threats, suspected fraud, a chargeback, legal correspondence, or a customer requesting deletion of personal data. Record only necessary case details in the support system. End of fictional training document."
+          },
+          {
+            "step": 2,
+            "action": "final_answer",
+            "action_input": "",
+            "observation": null
+          }
+        ],
+        "sources": [
+          {
+            "source": "customer-support-ticket-knowledge-base.pdf",
+            "location": "page 3"
+          }
+        ],
+        "num_llm_calls": 2,
+        "total_tokens": 1400,
+        "elapsed_s": 10.941,
+        "stopped_safely": true,
+        "page_coverage": 1.0,
+        "escalation_correct": true
+      }
+    },
+    {
+      "id": "t06",
+      "ticket": "A customer placed an order 3 hours ago and wants to cancel it. They also have a promo code that already expired and want it applied anyway. Are either of those possible?",
+      "expected_pages": [
+        "page 2",
+        "page 3"
+      ],
+      "expect_escalation": false,
+      "fixed": {
+        "answer": "No.  \n- An order can only be cancelled within the first 2\u202fhours after it is placed; after that time the cancellation is not possible. [customer-support-ticket-knowledge-base.pdf | page\u202f2]  \n- An expired promotional code cannot be reinstated or applied to an order. [customer-support-ticket-knowledge-base.pdf | page\u202f3]",
+        "sources": [
+          {
+            "source": "customer-support-ticket-knowledge-base.pdf",
+            "location": "page 3"
+          },
+          {
+            "source": "customer-support-ticket-knowledge-base.pdf",
+            "location": "page 2"
+          },
+          {
+            "source": "customer-support-ticket-knowledge-base.pdf",
+            "location": "page 1"
+          }
+        ],
+        "num_llm_calls": 1,
+        "total_tokens": 1429,
+        "elapsed_s": 10.236,
+        "page_coverage": 1.0,
+        "escalation_correct": true
+      },
+      "agent": {
+        "ticket": "A customer placed an order 3 hours ago and wants to cancel it. They also have a promo code that already expired and want it applied anyway. Are either of those possible?",
+        "answer": "I\u2019m sorry, but we can\u2019t cancel the order or re\u2011apply the expired promo code.\n\n* **Order cancellation** \u2013 Orders can only be cancelled within the first 2\u202fhours after they\u2019re placed. Since your order was placed 3\u202fhours ago, it\u2019s past that window.  \n  [customer-support-ticket-knowledge-base.pdf | page 1]\n\n* **Expired promo code** \u2013 Once a promotional code has expired, it cannot be reinstated or applied to a new order.  \n  [customer-support-ticket-knowledge-base.pdf | page 3]",
+        "steps": [
+          {
+            "step": 1,
+            "action": "search_kb",
+            "action_input": {
+              "query": "order cancellation window"
+            },
+            "observation": "[customer-support-ticket-knowledge-base.pdf | page 1]\nNorthstar Home - fictional training data Page 1 Northstar Home Customer Support Knowledge Base Fictional training document for a Retrieval-Augmented Generation (RAG) project. Do not treat it as a real company policy. Purpose This guide gives support agents consistent answers for common customer questions about orders, delivery, returns, damaged items, accounts, and promotions. Use the article title and page number when citing an answer. Support hours: Monday-Friday, 9:00 AM-6:00 PM India Standard Time. Live chat is unavailable on public holidays. Quick policy directory Topic Short answer Article Refunds Most unused items: request within 30 calendar days of delivery. Returns and refunds Damaged items Report with photos within 7 calendar days of delivery. Damaged or incorrect orders Order cancellation Possible during the first 2 hours after placing an order. Order changes and cancellations Delivery Standard: 5-7 business days; Express: 1-2 business days. Delivery and tracking"
+          },
+          {
+            "step": 2,
+            "action": "search_kb",
+            "action_input": {
+              "query": "promo code expired"
+            },
+            "observation": "[customer-support-ticket-knowledge-base.pdf | page 3]\nNorthstar Home - fictional training data Page 3 Accounts and promotions Changing an account email A customer can change the email address on an account from Account Settings. If they cannot access the old email address, ask them to contact support from the new address and provide the last order number plus the billing postcode for verification. Password reset Customers should use the 'Forgot password' link on the sign-in screen. The reset email expires after 30 minutes. If the email does not arrive, ask the customer to check spam and confirm they are using the email address registered to the account. Promotions and coupons Only one promotional code may be used per order. Promotional codes cannot be combined with another code, applied after checkout, or exchanged for cash. A code that has expired cannot be reinstated. Product warranty Northstar Home products include a 12-month limited warranty from the delivery date for manufacturing defects. The warranty does not cover accidental damage, normal wear, or misuse. Customers should provide proof of purchase and photos of the issue when making a warranty claim. Escalation guidance Escalate cases involving threats, suspected fraud, a chargeback, legal correspondence, or a customer requesting deletion of personal data. Record only necessary case details in the support system. End of fictional training document."
+          },
+          {
+            "step": 3,
+            "action": "final_answer",
+            "action_input": "I\u2019m sorry, but we can\u2019t cancel the order or re\u2011apply the expired promo code.\n\n* **Order cancellation** \u2013 Orders can only be cancelled within the first 2\u202fhours after they\u2019re placed. Since your order was placed 3\u202fhours ago, it\u2019s past that window.  \n  [customer-support-ticket-knowledge-base.pdf | page 1]\n\n* **Expired promo code** \u2013 Once a promotional code has expired, it cannot be reinstated or applied to a new order.  \n  [customer-support-ticket-knowledge-base.pdf | page 3]",
+            "observation": null
+          }
+        ],
+        "sources": [
+          {
+            "source": "customer-support-ticket-knowledge-base.pdf",
+            "location": "page 1"
+          },
+          {
+            "source": "customer-support-ticket-knowledge-base.pdf",
+            "location": "page 3"
+          }
+        ],
+        "num_llm_calls": 3,
+        "total_tokens": 2525,
+        "elapsed_s": 20.099,
+        "stopped_safely": true,
+        "page_coverage": 0.5,
+        "escalation_correct": true
+      }
+    },
+    {
+      "id": "t07",
+      "ticket": "A customer's tracking hasn't updated in 12 days, and separately they're asking if the product warranty would cover it if the item turns out to be damaged. What should I tell them about both?",
+      "expected_pages": [
+        "page 2",
+        "page 3"
+      ],
+      "expect_escalation": false,
+      "fixed": {
+        "answer": "The tracking status has not changed for more than 10 business days, so we should open a delivery investigation ticket and let the customer know that we can\u2019t promise a replacement or refund until the investigation is complete.  \n[customer-support-ticket-knowledge-base.pdf | page 2]\n\nThe 12\u2011month limited warranty covers only manufacturing defects. It does not cover accidental damage, normal wear, or misuse. To file a warranty claim the customer will need proof of purchase and photos of the issue.  \n[customer-support-ticket-knowledge-base.pdf | page 3]",
+        "sources": [
+          {
+            "source": "customer-support-ticket-knowledge-base.pdf",
+            "location": "page 3"
+          },
+          {
+            "source": "customer-support-ticket-knowledge-base.pdf",
+            "location": "page 1"
+          },
+          {
+            "source": "customer-support-ticket-knowledge-base.pdf",
+            "location": "page 2"
+          }
+        ],
+        "num_llm_calls": 1,
+        "total_tokens": 1464,
+        "elapsed_s": 10.375,
+        "page_coverage": 1.0,
+        "escalation_correct": true
+      },
+      "agent": {
+        "ticket": "A customer's tracking hasn't updated in 12 days, and separately they're asking if the product warranty would cover it if the item turns out to be damaged. What should I tell them about both?",
+        "answer": "",
+        "steps": [
+          {
+            "step": 1,
+            "action": "search_kb",
+            "action_input": {
+              "query": "tracking hasn't updated 12 days"
+            },
+            "observation": "[customer-support-ticket-knowledge-base.pdf | page 2]\nNorthstar Home - fictional training data Page 2 Returns and refunds Standard return window Customers may request a return for an unused item within 30 calendar days of the delivery date. The item must be in its original condition and include all supplied accessories. Final-sale products and digital gift cards cannot be returned. Refund timing After the returned item reaches our warehouse and passes inspection, the refund is issued to the original payment method within 3-5 business days. A bank or card issuer may take additional time to show the credit. Damaged or incorrect orders Customers must report a damaged, defective, or incorrect item within 7 calendar days of delivery. Ask for the order number, a short description, and clear photos of the product and packaging. Do not ask the customer to return the item until a support agent confirms the next step. Order changes and cancellations An order can be cancelled or changed only during the first 2 hours after it is placed, provided warehouse processing has not begun. After 2 hours, agents should explain that the order cannot be changed and offer the standard return process after delivery if eligible. Delivery and tracking Standard delivery normally takes 5-7 business days after dispatch. Express delivery normally takes 1-2 business days after dispatch. Dispatch confirmation, including a tracking link, is sent by email within one business day of a successful order. If tracking has not changed for 10 business days after dispatch, create a delivery investigation ticket. Do not promise a replacement or refund before the investigation is complete."
+          },
+          {
+            "step": 2,
+            "action": "search_kb",
+            "action_input": {
+              "query": "product warranty would cover if item turns out to be damaged"
+            },
+            "observation": "[customer-support-ticket-knowledge-base.pdf | page 3]\nNorthstar Home - fictional training data Page 3 Accounts and promotions Changing an account email A customer can change the email address on an account from Account Settings. If they cannot access the old email address, ask them to contact support from the new address and provide the last order number plus the billing postcode for verification. Password reset Customers should use the 'Forgot password' link on the sign-in screen. The reset email expires after 30 minutes. If the email does not arrive, ask the customer to check spam and confirm they are using the email address registered to the account. Promotions and coupons Only one promotional code may be used per order. Promotional codes cannot be combined with another code, applied after checkout, or exchanged for cash. A code that has expired cannot be reinstated. Product warranty Northstar Home products include a 12-month limited warranty from the delivery date for manufacturing defects. The warranty does not cover accidental damage, normal wear, or misuse. Customers should provide proof of purchase and photos of the issue when making a warranty claim. Escalation guidance Escalate cases involving threats, suspected fraud, a chargeback, legal correspondence, or a customer requesting deletion of personal data. Record only necessary case details in the support system. End of fictional training document."
+          },
+          {
+            "step": 3,
+            "action": "final_answer",
+            "action_input": "",
+            "observation": null
+          }
+        ],
+        "sources": [
+          {
+            "source": "customer-support-ticket-knowledge-base.pdf",
+            "location": "page 2"
+          },
+          {
+            "source": "customer-support-ticket-knowledge-base.pdf",
+            "location": "page 3"
+          }
+        ],
+        "num_llm_calls": 3,
+        "total_tokens": 3215,
+        "elapsed_s": 21.443,
+        "stopped_safely": true,
+        "page_coverage": 1.0,
+        "escalation_correct": true
+      }
+    },
+    {
+      "id": "t08",
+      "ticket": "A customer never received their password reset email, and separately wants to know if they can get a cash refund instead of a refund to their card for an unused item still within the return window.",
+      "expected_pages": [
+        "page 2",
+        "page 3"
+      ],
+      "expect_escalation": false,
+      "fixed": {
+        "answer": "**Password reset email**\n\nIf the reset email hasn\u2019t arrived, the policy says to:\n\n1. Ask the customer to check their spam/junk folder.  \n2. Confirm that they are using the email address that is registered to the account.  \n\n[customer\u2011support\u2011ticket\u2011knowledge\u2011base.pdf | page\u202f3 | chunk\u20111]  \n\n**Refund for an unused item**\n\nFor returns within the 30\u2011day window, the refund is automatically issued to the original payment method (the card used at checkout) within 3\u20135 business days after the item is inspected. A cash refund is not offered.  \n\n[customer\u2011support\u2011ticket\u2011knowledge\u2011base.pdf | page\u202f2 | chunk\u20111]",
+        "sources": [
+          {
+            "source": "customer-support-ticket-knowledge-base.pdf",
+            "location": "page 3"
+          },
+          {
+            "source": "customer-support-ticket-knowledge-base.pdf",
+            "location": "page 2"
+          },
+          {
+            "source": "customer-support-ticket-knowledge-base.pdf",
+            "location": "page 1"
+          }
+        ],
+        "num_llm_calls": 1,
+        "total_tokens": 1559,
+        "elapsed_s": 11.374,
+        "page_coverage": 1.0,
+        "escalation_correct": true
+      },
+      "agent": {
+        "ticket": "A customer never received their password reset email, and separately wants to know if they can get a cash refund instead of a refund to their card for an unused item still within the return window.",
+        "answer": "Here\u2019s what you can do:\n\n1. **Password reset email not received** \u2013 Ask the customer to check their spam/junk folder and confirm they\u2019re using the email address registered to the account. If it\u2019s still missing, have them click the \u2018Forgot password\u2019 link again and let us know the last order number and billing postcode so we can verify their identity and resend the reset link. (See page\u202f3 of the knowledge base.)\n\n2. **Cash refund instead of card refund** \u2013 Under our return policy, refunds are issued to the original payment method within 3\u20115 business days after the returned item is inspected. We don\u2019t offer cash refunds for unused items. (See page\u202f2 of the knowledge base.)",
+        "steps": [
+          {
+            "step": 1,
+            "action": "search_kb",
+            "action_input": {
+              "query": "password reset email not received"
+            },
+            "observation": "[customer-support-ticket-knowledge-base.pdf | page 3]\nNorthstar Home - fictional training data Page 3 Accounts and promotions Changing an account email A customer can change the email address on an account from Account Settings. If they cannot access the old email address, ask them to contact support from the new address and provide the last order number plus the billing postcode for verification. Password reset Customers should use the 'Forgot password' link on the sign-in screen. The reset email expires after 30 minutes. If the email does not arrive, ask the customer to check spam and confirm they are using the email address registered to the account. Promotions and coupons Only one promotional code may be used per order. Promotional codes cannot be combined with another code, applied after checkout, or exchanged for cash. A code that has expired cannot be reinstated. Product warranty Northstar Home products include a 12-month limited warranty from the delivery date for manufacturing defects. The warranty does not cover accidental damage, normal wear, or misuse. Customers should provide proof of purchase and photos of the issue when making a warranty claim. Escalation guidance Escalate cases involving threats, suspected fraud, a chargeback, legal correspondence, or a customer requesting deletion of personal data. Record only necessary case details in the support system. End of fictional training document."
+          },
+          {
+            "step": 2,
+            "action": "search_kb",
+            "action_input": {
+              "query": "cash refund instead of card refund return window"
+            },
+            "observation": "[customer-support-ticket-knowledge-base.pdf | page 2]\nNorthstar Home - fictional training data Page 2 Returns and refunds Standard return window Customers may request a return for an unused item within 30 calendar days of the delivery date. The item must be in its original condition and include all supplied accessories. Final-sale products and digital gift cards cannot be returned. Refund timing After the returned item reaches our warehouse and passes inspection, the refund is issued to the original payment method within 3-5 business days. A bank or card issuer may take additional time to show the credit. Damaged or incorrect orders Customers must report a damaged, defective, or incorrect item within 7 calendar days of delivery. Ask for the order number, a short description, and clear photos of the product and packaging. Do not ask the customer to return the item until a support agent confirms the next step. Order changes and cancellations An order can be cancelled or changed only during the first 2 hours after it is placed, provided warehouse processing has not begun. After 2 hours, agents should explain that the order cannot be changed and offer the standard return process after delivery if eligible. Delivery and tracking Standard delivery normally takes 5-7 business days after dispatch. Express delivery normally takes 1-2 business days after dispatch. Dispatch confirmation, including a tracking link, is sent by email within one business day of a successful order. If tracking has not changed for 10 business days after dispatch, create a delivery investigation ticket. Do not promise a replacement or refund before the investigation is complete."
+          },
+          {
+            "step": 3,
+            "action": "final_answer",
+            "action_input": {
+              "text": "Here\u2019s what you can do:\n\n1. **Password reset email not received** \u2013 Ask the customer to check their spam/junk folder and confirm they\u2019re using the email address registered to the account. If it\u2019s still missing, have them click the \u2018Forgot password\u2019 link again and let us know the last order number and billing postcode so we can verify their identity and resend the reset link. (See page\u202f3 of the knowledge base.)\n\n2. **Cash refund instead of card refund** \u2013 Under our return policy, refunds are issued to the original payment method within 3\u20115 business days after the returned item is inspected. We don\u2019t offer cash refunds for unused items. (See page\u202f2 of the knowledge base.)"
+            },
+            "observation": null
+          }
+        ],
+        "sources": [
+          {
+            "source": "customer-support-ticket-knowledge-base.pdf",
+            "location": "page 3"
+          },
+          {
+            "source": "customer-support-ticket-knowledge-base.pdf",
+            "location": "page 2"
+          }
+        ],
+        "num_llm_calls": 3,
+        "total_tokens": 2849,
+        "elapsed_s": 25.16,
+        "stopped_safely": true,
+        "page_coverage": 1.0,
+        "escalation_correct": true
+      }
+    },
+    {
+      "id": "t09",
+      "ticket": "A customer is threatening legal action because an item arrived broken and wants to know how to report it.",
+      "expected_pages": [
+        "page 2"
+      ],
+      "expect_escalation": true,
+      "fixed": {
+        "answer": "To report a broken item, you should:\n\n1. **Contact support within 7 calendar days of delivery**.  \n   Provide the order number, a short description of the problem, and clear photos of the product and its packaging.  \n   *Do not return the item until a support agent confirms the next step.*  \n   [customer-support-ticket-knowledge-base.pdf | page 2]\n\n2. **If the damage is due to a manufacturing defect**, you can file a warranty claim.  \n   Submit proof of purchase and photos of the issue.  \n   *The 12\u2011month limited warranty covers manufacturing defects but not accidental damage.*  \n   [customer-support-ticket-knowledge-base.pdf | page 3]\n\n3. **Because the customer is threatening legal action**, this case should be escalated to the legal team for review.  \n   *Escalate cases involving threats, suspected fraud, a chargeback, legal correspondence, or a customer requesting deletion of personal data.*  \n   [customer-support-ticket-knowledge-base.pdf | page 3]",
+        "sources": [
+          {
+            "source": "customer-support-ticket-knowledge-base.pdf",
+            "location": "page 3"
+          },
+          {
+            "source": "customer-support-ticket-knowledge-base.pdf",
+            "location": "page 2"
+          },
+          {
+            "source": "customer-support-ticket-knowledge-base.pdf",
+            "location": "page 1"
+          }
+        ],
+        "num_llm_calls": 1,
+        "total_tokens": 1749,
+        "elapsed_s": 9.553,
+        "page_coverage": 1.0,
+        "escalation_correct": true
+      },
+      "agent": {
+        "ticket": "A customer is threatening legal action because an item arrived broken and wants to know how to report it.",
+        "answer": "Step budget reached before a final answer was produced -- stopping safely rather than looping further.",
+        "steps": [
+          {
+            "step": 1,
+            "action": "search_kb",
+            "action_input": {
+              "query": "broken item arrived report"
+            },
+            "observation": "[customer-support-ticket-knowledge-base.pdf | page 1]\nNorthstar Home - fictional training data Page 1 Northstar Home Customer Support Knowledge Base Fictional training document for a Retrieval-Augmented Generation (RAG) project. Do not treat it as a real company policy. Purpose This guide gives support agents consistent answers for common customer questions about orders, delivery, returns, damaged items, accounts, and promotions. Use the article title and page number when citing an answer. Support hours: Monday-Friday, 9:00 AM-6:00 PM India Standard Time. Live chat is unavailable on public holidays. Quick policy directory Topic Short answer Article Refunds Most unused items: request within 30 calendar days of delivery. Returns and refunds Damaged items Report with photos within 7 calendar days of delivery. Damaged or incorrect orders Order cancellation Possible during the first 2 hours after placing an order. Order changes and cancellations Delivery Standard: 5-7 business days; Express: 1-2 business days. Delivery and tracking"
+          },
+          {
+            "step": 2,
+            "action": "search_kb",
+            "action_input": {
+              "query": "Damaged items"
+            },
+            "observation": "[customer-support-ticket-knowledge-base.pdf | page 1]\nNorthstar Home - fictional training data Page 1 Northstar Home Customer Support Knowledge Base Fictional training document for a Retrieval-Augmented Generation (RAG) project. Do not treat it as a real company policy. Purpose This guide gives support agents consistent answers for common customer questions about orders, delivery, returns, damaged items, accounts, and promotions. Use the article title and page number when citing an answer. Support hours: Monday-Friday, 9:00 AM-6:00 PM India Standard Time. Live chat is unavailable on public holidays. Quick policy directory Topic Short answer Article Refunds Most unused items: request within 30 calendar days of delivery. Returns and refunds Damaged items Report with photos within 7 calendar days of delivery. Damaged or incorrect orders Order cancellation Possible during the first 2 hours after placing an order. Order changes and cancellations Delivery Standard: 5-7 business days; Express: 1-2 business days. Delivery and tracking"
+          },
+          {
+            "step": 3,
+            "action": "search_kb",
+            "action_input": {
+              "query": "legal action"
+            },
+            "observation": "[customer-support-ticket-knowledge-base.pdf | page 3]\nNorthstar Home - fictional training data Page 3 Accounts and promotions Changing an account email A customer can change the email address on an account from Account Settings. If they cannot access the old email address, ask them to contact support from the new address and provide the last order number plus the billing postcode for verification. Password reset Customers should use the 'Forgot password' link on the sign-in screen. The reset email expires after 30 minutes. If the email does not arrive, ask the customer to check spam and confirm they are using the email address registered to the account. Promotions and coupons Only one promotional code may be used per order. Promotional codes cannot be combined with another code, applied after checkout, or exchanged for cash. A code that has expired cannot be reinstated. Product warranty Northstar Home products include a 12-month limited warranty from the delivery date for manufacturing defects. The warranty does not cover accidental damage, normal wear, or misuse. Customers should provide proof of purchase and photos of the issue when making a warranty claim. Escalation guidance Escalate cases involving threats, suspected fraud, a chargeback, legal correspondence, or a customer requesting deletion of personal data. Record only necessary case details in the support system. End of fictional training document."
+          },
+          {
+            "step": 4,
+            "action": "search_kb",
+            "action_input": {
+              "query": "report broken item"
+            },
+            "observation": "[customer-support-ticket-knowledge-base.pdf | page 1]\nNorthstar Home - fictional training data Page 1 Northstar Home Customer Support Knowledge Base Fictional training document for a Retrieval-Augmented Generation (RAG) project. Do not treat it as a real company policy. Purpose This guide gives support agents consistent answers for common customer questions about orders, delivery, returns, damaged items, accounts, and promotions. Use the article title and page number when citing an answer. Support hours: Monday-Friday, 9:00 AM-6:00 PM India Standard Time. Live chat is unavailable on public holidays. Quick policy directory Topic Short answer Article Refunds Most unused items: request within 30 calendar days of delivery. Returns and refunds Damaged items Report with photos within 7 calendar days of delivery. Damaged or incorrect orders Order cancellation Possible during the first 2 hours after placing an order. Order changes and cancellations Delivery Standard: 5-7 business days; Express: 1-2 business days. Delivery and tracking"
+          }
+        ],
+        "sources": [
+          {
+            "source": "customer-support-ticket-knowledge-base.pdf",
+            "location": "page 1"
+          },
+          {
+            "source": "customer-support-ticket-knowledge-base.pdf",
+            "location": "page 1"
+          },
+          {
+            "source": "customer-support-ticket-knowledge-base.pdf",
+            "location": "page 3"
+          },
+          {
+            "source": "customer-support-ticket-knowledge-base.pdf",
+            "location": "page 1"
+          }
+        ],
+        "num_llm_calls": 4,
+        "total_tokens": 3915,
+        "elapsed_s": 33.313,
+        "stopped_safely": false,
+        "page_coverage": 0.0,
+        "escalation_correct": false
+      }
+    },
+    {
+      "id": "t10",
+      "ticket": "Do you have a customer loyalty rewards program?",
+      "expected_pages": [],
+      "expect_escalation": false,
+      "fixed": {
+        "answer": "I don't know based on the provided customer-support documents.",
+        "sources": [
+          {
+            "source": "customer-support-ticket-knowledge-base.pdf",
+            "location": "page 3"
+          },
+          {
+            "source": "customer-support-ticket-knowledge-base.pdf",
+            "location": "page 2"
+          },
+          {
+            "source": "customer-support-ticket-knowledge-base.pdf",
+            "location": "page 1"
+          }
+        ],
+        "num_llm_calls": 1,
+        "total_tokens": 1192,
+        "elapsed_s": 9.468,
+        "page_coverage": 1.0,
+        "escalation_correct": true
+      },
+      "agent": {
+        "ticket": "Do you have a customer loyalty rewards program?",
+        "answer": "",
+        "steps": [
+          {
+            "step": 1,
+            "action": "search_kb",
+            "action_input": {
+              "query": "customer loyalty rewards program"
+            },
+            "observation": "[customer-support-ticket-knowledge-base.pdf | page 3]\nNorthstar Home - fictional training data Page 3 Accounts and promotions Changing an account email A customer can change the email address on an account from Account Settings. If they cannot access the old email address, ask them to contact support from the new address and provide the last order number plus the billing postcode for verification. Password reset Customers should use the 'Forgot password' link on the sign-in screen. The reset email expires after 30 minutes. If the email does not arrive, ask the customer to check spam and confirm they are using the email address registered to the account. Promotions and coupons Only one promotional code may be used per order. Promotional codes cannot be combined with another code, applied after checkout, or exchanged for cash. A code that has expired cannot be reinstated. Product warranty Northstar Home products include a 12-month limited warranty from the delivery date for manufacturing defects. The warranty does not cover accidental damage, normal wear, or misuse. Customers should provide proof of purchase and photos of the issue when making a warranty claim. Escalation guidance Escalate cases involving threats, suspected fraud, a chargeback, legal correspondence, or a customer requesting deletion of personal data. Record only necessary case details in the support system. End of fictional training document."
+          },
+          {
+            "step": 2,
+            "action": "search_kb",
+            "action_input": {
+              "query": "loyalty program"
+            },
+            "observation": "[customer-support-ticket-knowledge-base.pdf | page 1]\nNorthstar Home - fictional training data Page 1 Northstar Home Customer Support Knowledge Base Fictional training document for a Retrieval-Augmented Generation (RAG) project. Do not treat it as a real company policy. Purpose This guide gives support agents consistent answers for common customer questions about orders, delivery, returns, damaged items, accounts, and promotions. Use the article title and page number when citing an answer. Support hours: Monday-Friday, 9:00 AM-6:00 PM India Standard Time. Live chat is unavailable on public holidays. Quick policy directory Topic Short answer Article Refunds Most unused items: request within 30 calendar days of delivery. Returns and refunds Damaged items Report with photos within 7 calendar days of delivery. Damaged or incorrect orders Order cancellation Possible during the first 2 hours after placing an order. Order changes and cancellations Delivery Standard: 5-7 business days; Express: 1-2 business days. Delivery and tracking"
+          },
+          {
+            "step": 3,
+            "action": "search_kb",
+            "action_input": {
+              "query": "reward"
+            },
+            "observation": "[customer-support-ticket-knowledge-base.pdf | page 1]\nNorthstar Home - fictional training data Page 1 Northstar Home Customer Support Knowledge Base Fictional training document for a Retrieval-Augmented Generation (RAG) project. Do not treat it as a real company policy. Purpose This guide gives support agents consistent answers for common customer questions about orders, delivery, returns, damaged items, accounts, and promotions. Use the article title and page number when citing an answer. Support hours: Monday-Friday, 9:00 AM-6:00 PM India Standard Time. Live chat is unavailable on public holidays. Quick policy directory Topic Short answer Article Refunds Most unused items: request within 30 calendar days of delivery. Returns and refunds Damaged items Report with photos within 7 calendar days of delivery. Damaged or incorrect orders Order cancellation Possible during the first 2 hours after placing an order. Order changes and cancellations Delivery Standard: 5-7 business days; Express: 1-2 business days. Delivery and tracking"
+          },
+          {
+            "step": 4,
+            "action": "final_answer",
+            "action_input": "",
+            "observation": null
+          }
+        ],
+        "sources": [
+          {
+            "source": "customer-support-ticket-knowledge-base.pdf",
+            "location": "page 3"
+          },
+          {
+            "source": "customer-support-ticket-knowledge-base.pdf",
+            "location": "page 1"
+          },
+          {
+            "source": "customer-support-ticket-knowledge-base.pdf",
+            "location": "page 1"
+          }
+        ],
+        "num_llm_calls": 4,
+        "total_tokens": 3747,
+        "elapsed_s": 26.112,
+        "stopped_safely": true,
+        "page_coverage": 0.0,
+        "escalation_correct": true
+      }
+    }
+  ]
+}

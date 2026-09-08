@@ -43,7 +43,7 @@ with tab_chat:
     question = st.text_area("Ask a customer-support question", placeholder="What is the refund policy for a damaged product?")
     if st.button("Answer from documents", disabled=not question.strip()):
         try:
-            answer, results = answer_question(question, top_k, generation_model, retrieval_mode)
+            answer, results, _usage = answer_question(question, top_k, generation_model, retrieval_mode)
             st.subheader("Answer")
             st.write(answer)
             st.subheader("Retrieved evidence")

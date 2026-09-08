@@ -48,7 +48,7 @@ SAMPLE = [
 def main() -> int:
     rows = []
     for case in SAMPLE:
-        answer, retrieved = rag_core.answer_question(case["question"], top_k=3, mode="hybrid")
+        answer, retrieved, _usage = rag_core.answer_question(case["question"], top_k=3, mode="hybrid")
         context = "\n\n".join(f"[Source: {r['source']} | {r['location']}]\n{r['text']}" for r in retrieved)
         judge = rag_core.judge_answer(case["question"], answer, context)
         agree = judge["score"] is not None and abs(judge["score"] - case["human_score"]) <= 1

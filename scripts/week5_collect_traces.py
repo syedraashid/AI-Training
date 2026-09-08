@@ -24,7 +24,7 @@ QUESTIONS_PATH = ROOT / "data" / "week5_questions.json"
 def main() -> int:
     questions = json.loads(QUESTIONS_PATH.read_text(encoding="utf-8"))
     for i, question in enumerate(questions, start=1):
-        answer, results = rag_core.answer_question(question, top_k=3, generation_model="openai/gpt-oss-20b", mode="hybrid")
+        answer, results, _usage = rag_core.answer_question(question, top_k=3, generation_model="openai/gpt-oss-20b", mode="hybrid")
         sources = [r["source"] for r in results]
         print(f"[{i}/{len(questions)}] Q: {question}")
         print(f"    sources: {sources}")
