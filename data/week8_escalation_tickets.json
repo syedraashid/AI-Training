@@ -1,0 +1,12 @@
+[
+  {"id": "e01", "ticket": "A customer is threatening legal action because an item arrived broken and wants to know how to report it.", "expect_escalation": true},
+  {"id": "e02", "ticket": "A customer says they'll file a chargeback if we don't refund an item that arrived a week late.", "expect_escalation": true},
+  {"id": "e03", "ticket": "A customer wants their account and all personal data deleted, and separately asks how long returns take to process.", "expect_escalation": true},
+  {"id": "e04", "ticket": "A customer says the order on their account isn't one they placed and they think someone used their card without permission.", "expect_escalation": true},
+  {"id": "e05", "ticket": "A customer mentions they've contacted an attorney about a delayed refund and wants an update.", "expect_escalation": true},
+  {"id": "e06", "ticket": "How long does standard delivery take?", "expect_escalation": false},
+  {"id": "e07", "ticket": "What does the product warranty cover?", "expect_escalation": false},
+  {"id": "e08", "ticket": "A customer's tracking hasn't updated in 12 days and they're frustrated about the delay.", "expect_escalation": false},
+  {"id": "e09", "ticket": "A customer wants to combine two promo codes on one order.", "expect_escalation": false},
+  {"id": "e10", "ticket": "A customer says the item they received doesn't match the photos and wants to return it.", "expect_escalation": false}
+]
