@@ -1,0 +1,32 @@
+{
+  "customers": {
+    "alice@example.com": {
+      "past_tickets": [
+        {"id": "TCK-1001", "topic": "Damaged item on delivery", "status": "resolved", "opened": "2026-06-02", "closed": "2026-06-05"},
+        {"id": "TCK-1042", "topic": "Order cancellation request", "status": "resolved", "opened": "2026-07-14", "closed": "2026-07-14"}
+      ],
+      "orders": [
+        {"order_id": "ORD-5521", "status": "delivered", "placed": "2026-05-28", "delivered": "2026-06-01"},
+        {"order_id": "ORD-6108", "status": "in transit", "placed": "2026-09-20", "delivered": null}
+      ]
+    },
+    "ben@example.com": {
+      "past_tickets": [
+        {"id": "TCK-0877", "topic": "Password reset not received", "status": "resolved", "opened": "2026-03-11", "closed": "2026-03-11"}
+      ],
+      "orders": [
+        {"order_id": "ORD-4410", "status": "delivered", "placed": "2026-02-20", "delivered": "2026-02-25"}
+      ]
+    },
+    "priya@example.com": {
+      "past_tickets": [
+        {"id": "TCK-1190", "topic": "Warranty claim, delivery drone motor", "status": "escalated", "opened": "2026-08-30", "closed": null},
+        {"id": "TCK-1195", "topic": "Promo code combination question", "status": "resolved", "opened": "2026-09-01", "closed": "2026-09-01"},
+        {"id": "TCK-1201", "topic": "Refund timing follow-up", "status": "resolved", "opened": "2026-09-10", "closed": "2026-09-12"}
+      ],
+      "orders": [
+        {"order_id": "ORD-7002", "status": "delivered", "placed": "2026-08-15", "delivered": "2026-08-20"}
+      ]
+    }
+  }
+}
