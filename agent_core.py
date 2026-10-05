@@ -28,6 +28,13 @@ no model in it at all; this file never imports it, only talks to it over HTTP. A
 tool to that server, or adding a second server to MCP_SERVERS, requires zero other changes here
 -- the dispatch loop below routes any tool name it doesn't recognize to whichever MCP server
 reported owning it, generically, by name.
+
+Week 10 additions (see data/results/week10_multi_agent_race.md): prompt_tokens/completion_tokens
+are now tracked separately (not just their sum) because Groq prices them ~4x apart
+(rag_core.estimate_cost_usd) -- needed for an honest $ figure, not just a token count.
+allowed_tool_names lets a caller show the model a restricted subset of the normal toolbox; this
+is how multi_agent_core.py's two specialists are built -- by calling this same run_agent, scoped
+down, rather than writing a second loop.
 """
 
 from __future__ import annotations
@@ -153,13 +160,23 @@ def _vet_mcp_tool(name: str, description: str) -> list[str]:
     return [pattern for pattern in SUSPICIOUS_TOOL_METADATA_PATTERNS if re.search(pattern, lowered)]
 
 
+async def _connect_and_list_tools(url: str) -> list[Any]:
+    # timeout= alone bounds each individual request -- it does NOT bound the initial
+    # connect/handshake phase, which can hang indefinitely without init_timeout set (traced this
+    # directly: a bare timeout= hung for 15+ seconds against a server that answered a plain HTTP
+    # request in 0.25s; adding init_timeout fixed it instantly). Both are set here, plus an outer
+    # wait_for as a hard backstop, since we were just wrong once about what a timeout parameter
+    # actually covered and shouldn't assume either guard alone is airtight.
+    async with MCPClient(url, timeout=MCP_DISCOVERY_TIMEOUT_S, init_timeout=MCP_DISCOVERY_TIMEOUT_S) as client:
+        return await client.list_tools()
+
+
 async def _discover_mcp_tools_async() -> tuple[list[dict[str, Any]], dict[str, str]]:
     schemas: list[dict[str, Any]] = []
     dispatch: dict[str, str] = {}
     for url in MCP_SERVERS:
         try:
-            async with MCPClient(url, timeout=MCP_DISCOVERY_TIMEOUT_S) as client:
-                tools = await client.list_tools()
+            tools = await asyncio.wait_for(_connect_and_list_tools(url), timeout=MCP_DISCOVERY_TIMEOUT_S + 2)
         except Exception as exc:  # server not running, network error, protocol error -- skip, don't crash the ticket
             print(f"[mcp] could not reach {url}, skipping its tools: {exc}")
             continue
@@ -184,14 +201,16 @@ def discover_mcp_tools() -> tuple[list[dict[str, Any]], dict[str, str]]:
 
 
 async def _call_mcp_tool_async(server_url: str, name: str, arguments: dict[str, Any]) -> Any:
-    async with MCPClient(server_url, timeout=MCP_DISCOVERY_TIMEOUT_S) as client:
+    async with MCPClient(server_url, timeout=MCP_DISCOVERY_TIMEOUT_S, init_timeout=MCP_DISCOVERY_TIMEOUT_S) as client:
         result = await client.call_tool(name, arguments)
     return result.data
 
 
 def call_mcp_tool(server_url: str, name: str, arguments: dict[str, Any]) -> str:
     try:
-        data = asyncio.run(_call_mcp_tool_async(server_url, name, arguments))
+        data = asyncio.run(asyncio.wait_for(
+            _call_mcp_tool_async(server_url, name, arguments), timeout=MCP_DISCOVERY_TIMEOUT_S + 2,
+        ))
     except Exception as exc:
         return f"MCP tool call to '{name}' failed: {exc}"
     return (
@@ -288,11 +307,18 @@ def flag_suspicious_output(answer: str) -> list[str]:
 def run_agent(
     ticket: str, generation_model: str = "openai/gpt-oss-20b", max_steps: int = MAX_STEPS,
     give_up_retries: int = GIVE_UP_RETRIES, force_escalation_precheck: bool = True,
-    use_mcp_tools: bool = True,
+    use_mcp_tools: bool = True, allowed_tool_names: set[str] | None = None,
 ) -> dict[str, Any]:
+    """allowed_tool_names (Week 10): when given, the model only ever sees tools whose name is in
+    this set (always include "final_answer") -- everything else about the loop (retries, the
+    escalation precheck, MCP discovery) is unchanged. This is how multi_agent_core.py builds
+    narrow specialists (e.g. a KB-only specialist, an escalation-and-account-only specialist)
+    without a second copy of this loop -- it's the same agent, just shown a smaller toolbox."""
     steps: list[dict[str, Any]] = []
     sources: list[dict[str, Any]] = []
     total_tokens = 0
+    prompt_tokens = 0
+    completion_tokens = 0
     started = time.perf_counter()
     answer = None
 
@@ -303,6 +329,9 @@ def run_agent(
     if use_mcp_tools:
         mcp_schemas, mcp_dispatch = discover_mcp_tools()
     tools_schema = TOOLS_SCHEMA + mcp_schemas
+    if allowed_tool_names is not None:
+        tools_schema = [t for t in tools_schema if t["function"]["name"] in allowed_tool_names]
+        mcp_dispatch = {name: url for name, url in mcp_dispatch.items() if name in allowed_tool_names}
 
     # Week 8 fix for the "wrong tool choice on an escalation ticket" failure mode found by
     # week8_trajectory_eval.py: run the deterministic check_escalation rule BEFORE the LLM loop
@@ -336,7 +365,7 @@ def run_agent(
             response = None
             for attempt in range(LLM_CALL_RETRIES + 1):
                 try:
-                    response = rag_core.client().chat.completions.create(
+                    response = rag_core.chat_completion_with_backoff(
                         model=generation_model, messages=messages, tools=tools_schema, tool_choice="auto",
                         temperature=0,
                     )
@@ -356,7 +385,10 @@ def run_agent(
                 gave_up_retries_used = give_up_attempt + 1
                 message_dict = {"role": "assistant", "content": ""}
                 continue
-            total_tokens += response.usage.total_tokens if response.usage else 0
+            if response.usage:
+                total_tokens += response.usage.total_tokens
+                prompt_tokens += response.usage.prompt_tokens
+                completion_tokens += response.usage.completion_tokens
             candidate = response.choices[0].message
             if candidate.tool_calls or (candidate.content or "").strip():
                 message = candidate
@@ -413,6 +445,9 @@ def run_agent(
         "sources": [{"source": s["source"], "location": s["location"]} for s in sources],
         "num_llm_calls": len(llm_steps) if stopped_safely else max_steps,
         "total_tokens": total_tokens,
+        "prompt_tokens": prompt_tokens,
+        "completion_tokens": completion_tokens,
+        "cost_usd": rag_core.estimate_cost_usd(prompt_tokens, completion_tokens, generation_model),
         "elapsed_s": round(elapsed, 3),
         "stopped_safely": stopped_safely,
         "suspicious_output_flags": flag_suspicious_output(answer),

@@ -10,6 +10,9 @@ from functools import lru_cache
 from pathlib import Path
 from typing import Any
 
+import time
+
+import groq
 import numpy as np
 from docx import Document
 from groq import Groq
@@ -23,12 +26,67 @@ INDEX_PATH = DATA_DIR / "index.json"
 TRACES_PATH = DATA_DIR / "traces.jsonl"
 REFUSAL_TEXT = "I don't know based on the provided customer-support documents."
 
+# Week 10: real published Groq pricing (confirmed against two independent sources on 2026-10-05,
+# since Groq's own pricing page did not render through an automated fetch) -- not invented, so
+# that a dollar figure reported anywhere in this project means the same thing everywhere it's
+# used. Input and output are priced ~4x apart, which is why cost tracking needs prompt_tokens and
+# completion_tokens split, not just a single total_tokens figure.
+GROQ_PRICING_USD_PER_M_TOKENS = {
+    "openai/gpt-oss-20b": {"input": 0.075, "output": 0.300},
+}
+
+
+def estimate_cost_usd(prompt_tokens: int, completion_tokens: int, model: str = "openai/gpt-oss-20b") -> float:
+    rates = GROQ_PRICING_USD_PER_M_TOKENS[model]
+    return prompt_tokens / 1_000_000 * rates["input"] + completion_tokens / 1_000_000 * rates["output"]
+
 
 def client() -> Groq:
     """Create the Groq client using the user's GROQ_API_KEY."""
     if not os.getenv("GROQ_API_KEY"):
         raise RuntimeError("GROQ_API_KEY is missing. Add it to .env or your environment.")
     return Groq(api_key=os.environ["GROQ_API_KEY"])
+
+
+_RETRY_AFTER_PATTERN = re.compile(r"try again in ([\d.]+)")
+MAX_AUTO_RETRY_WAIT_S = 30.0  # see chat_completion_with_backoff
+
+
+def chat_completion_with_backoff(max_retries: int = 5, **kwargs: Any):
+    """Week 10: a multi-agent race makes several times more calls per ticket than the single
+    agent did, which was enough to hit Groq's per-minute token limit (TPM, a tighter and
+    separate throttle from the per-day cap Week 8 hit) -- not exhausted, just too many requests
+    too quickly. The groq SDK already retries once internally and silently, which is why a single
+    call can appear to take 100+ seconds before this ever raises; this wraps that with an explicit,
+    visible retry loop so a 429 degrades into a short wait instead of crashing the whole run.
+
+    Traced directly (faulthandler.dump_traceback_later) after a run that looked hung for 2+ hours:
+    Groq reports the SAME retry-after for a TPM (per-minute) throttle and a TPD (per-day
+    exhaustion) 429 -- the only difference is the magnitude (single-digit seconds vs. the minutes
+    left until the daily window ages out, e.g. "7m44s"). An earlier version of this function slept
+    out whatever retry-after said unconditionally, so a daily-quota 429 silently blocked for
+    several minutes, repeated it up to max_retries times (nested inside run_agent's own two retry
+    loops, multiplying further), and the whole run looked frozen with no indication why. A wait
+    long enough to only make sense as daily exhaustion is NOT worth auto-retrying -- it should
+    raise immediately so the caller (and whoever is watching the process) sees the real error
+    fast, rather than silently discovering it after an unbounded wait."""
+    for attempt in range(max_retries + 1):
+        try:
+            return client().chat.completions.create(**kwargs)
+        except groq.RateLimitError as exc:
+            retry_after = None
+            header = exc.response.headers.get("retry-after") if exc.response is not None else None
+            if header:
+                try:
+                    retry_after = float(header)
+                except ValueError:
+                    retry_after = None
+            if retry_after is None:
+                match = _RETRY_AFTER_PATTERN.search(str(exc))
+                retry_after = float(match.group(1)) if match else 5.0
+            if attempt == max_retries or retry_after > MAX_AUTO_RETRY_WAIT_S:
+                raise
+            time.sleep(retry_after + 0.5)
 
 
 def extract_pages(filename: str, content: bytes) -> list[dict[str, Any]]:
